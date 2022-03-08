@@ -2,45 +2,31 @@ import { useState } from "react";
 
 function MoodPickerDemo(): JSX.Element {
   const [moodValueFromCurrentRender, queueRerenderWithNewMoodValue] =
-    useState("confused");
+    useState("unknown");
 
   const handleMoodChangeToHappy = () => {
-    const nextMood = "happy";
-    queueRerenderWithNewMoodValue(nextMood);
-    console.log(
-      "😀 queued a rerender with mood as",
-      nextMood,
-      "but in this render it is still",
-      moodValueFromCurrentRender
-    );
+    queueRerenderWithNewMoodValue("happy");
   };
 
   const handleMoodChangeToConfused = () => {
-    const nextMood = "confused";
-    queueRerenderWithNewMoodValue(nextMood);
-    console.log(
-      "🤔 queued a rerender with mood as",
-      nextMood,
-      "but in this render it is still",
-      moodValueFromCurrentRender
-    );
+    queueRerenderWithNewMoodValue("confused");
   };
 
   const handleMoodChangeToSad = () => {
-    const nextMood = "sad";
-    queueRerenderWithNewMoodValue(nextMood);
-    console.log(
-      "😢 queued a rerender with mood as",
-      nextMood,
-      "but in this render it is still",
-      moodValueFromCurrentRender
-    );
+     queueRerenderWithNewMoodValue("sad");
   };
 
-  console.log(
-    "Component is rendering with a mood value of",
-    moodValueFromCurrentRender
-  );
+  const handleMoodChangeToCool = () => {
+    queueRerenderWithNewMoodValue("cool");
+  };
+
+  const handleMoodChangeToAnxious = () => {
+   queueRerenderWithNewMoodValue("anxious");
+  };
+
+  const handleMoodChangeToCowboy = () => {
+    queueRerenderWithNewMoodValue("cowboy");
+  };
 
   return (
     <>
@@ -49,6 +35,9 @@ function MoodPickerDemo(): JSX.Element {
       <button onClick={handleMoodChangeToHappy}>😀</button>
       <button onClick={handleMoodChangeToConfused}>🤔</button>
       <button onClick={handleMoodChangeToSad}>😢</button>
+      <button onClick={handleMoodChangeToCool}>😎</button>
+      <button onClick={handleMoodChangeToAnxious}>😬</button>
+      <button onClick={handleMoodChangeToCowboy}>🤠</button>
     </>
   );
 }
